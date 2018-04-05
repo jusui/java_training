@@ -8,11 +8,28 @@ import static java.lang.System.*;
 */
 
 public class Test {
+
+    // 1. 乱数発生
     public static int getRandomNumber() {
 	return (int)(Math.random() * 100) + 1;
     }
 
-    // 4.
+    // 2. 絶対値
+    public static double getAbsoluteValue(double value) {
+	if ( value < 0 ) {
+	    return value * (-1.0);
+	} else
+	    return value;
+    }
+
+    // 3. 階乗
+    public static int getFactorial(int n) {
+	if ( n == 1 ) return n; // 例外
+	else
+	    return n * getFactorial( n - 1 ); // 再帰
+    }
+
+    // 4. 文字列返
     public static String getWeatherForecast() {
 	String[] days     = {"今日", "明日", "明後日"};
 	String[] weathers = {"晴れ", "曇り", "雨", "雪", "雷"};
@@ -77,6 +94,8 @@ public class Test {
     
     public static void main(String[] args) {
 	out.println( getRandomNumber() );      // random number
+	out.println( getAbsoluteValue(-3.6) );   // 2	
+	out.println( getFactorial(5) );   // 3	
 	out.println( getWeatherForecast() );   // 4
 	out.println( isEventNumber(3) );       // 6
 	out.println( getMinValue(4, 5) );      // 7
