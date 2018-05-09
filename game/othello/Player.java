@@ -5,11 +5,11 @@ public class Player {
     }
 
     public int getScore() {
-	return Game.getInstnce().getBoard().getScoreForColor(color);
+	return Game.getInstance().getBoard().getScoreForColor(color);
     }
 
     public boolean playPiece(int row, int column) {
-	return Game.getInstance().getBoard.placeColor(row, column, color);
+	return Game.getInstance().getBoard().placeColor(row, column, color);
     }
 
     public Color getColor() {
