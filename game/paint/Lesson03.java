@@ -4,7 +4,7 @@ import java.applet.*;
 import java.util.Vector.*;
 
 /**
-Lesson. 4 描画を維持する
+Lesson. 3 描画を維持する
  */
 
 public class Lesson03 extends Applet implements MouseListener, MouseMotionListener {

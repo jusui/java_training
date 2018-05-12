@@ -2,15 +2,19 @@ import java.awt.event.*;
 import java.awt.*;
 import java.applet.*;
 import java.util.Vector;
-
+import java.util.ArrayList;
+    
 /**
 Lesson. 4 描画を維持する
  */
 
+@SuppressWarnings("serial")
 public class Lesson04 extends Applet implements MouseListener, MouseMotionListener {
 
     // 図形保管用
     Vector shapes = new Vector();
+    // List<Integer> shape = new ArrayList<Integer>();
+    // Vector<Integer> shapes = new Vector<Integer>();
     
     // coordinator
     int x1, y1;
@@ -33,7 +37,9 @@ public class Lesson04 extends Applet implements MouseListener, MouseMotionListen
 	e.consume();
 	x1 = e.getX();
 	y1 = e.getY();
-	shapes.addElement(new Rectangle(x1, y1, x1, y1));
+	Rectangle v_press = new Rectangle(x1, y1, x1, y1);
+	shapes.addElement(v_press);
+	//	shapes.addElement(new Rectangle(x1, y1, x1, y1));
 
 	paint(getGraphics());
     }
@@ -44,7 +50,9 @@ public class Lesson04 extends Applet implements MouseListener, MouseMotionListen
     public void mouseDragged(MouseEvent e) {
 	e.consume();
 
-	shapes.addElement(new Rectangle(x1, y1, e.getX(), e.getY() ));	
+	Rectangle v_dragged = new Rectangle(x1, y1, x1, y1);
+	shapes.addElement(v_dragged);
+	//	shapes.addElement(new Rectangle(x1, y1, e.getX(), e.getY() ));	
 	// 新しい始点を定義
 	x1 = e.getX();
 	y1 = e.getY();
