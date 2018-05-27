@@ -15,7 +15,7 @@ import mrs.domain.service.user.ReservationUserDetailsService;
 
 @Configuration
 @EnableWebSecurity // Spring Security の Web連携機能を有効化
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true) // for @PreAuthorize 認可処理有効化
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	ReservationUserDetailsService userDetailsService;

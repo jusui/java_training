@@ -67,21 +67,20 @@ public class ReservationService {
 	//
 
 	// メソッドの実行前に適用するアクセスポリシーを指定する:@PreAuthorize
-	@PreAuthorize("hasRole('ADMIN') or #reservation.user.userId == principal.user.userId")
 	// @Pで明示的に引数名を指定できる(本来はクラスに出力されているデバッグ情報から引数名を解決する仕組み)
+	@PreAuthorize("hasRole('ADMIN') or #reservation.user.userId == principal.user.userId")
 	public void cancel(@P("reservation") Reservation reservation) {
 		reservationRepository.delete(reservation);
 	} // 予約キャンセル
 
 	public Reservation findOne(Integer reservationId) {
-		// TODO 自動生成されたメソッド・スタブ
 		return reservationRepository.findOne(reservationId);
 	}
 
 	public void cancel(Integer reservationId, User requestUser) {
-		// TODO 自動生成されたメソッド・スタブ
 		Reservation reservation = reservationRepository.findOne(reservationId);
-		if ( RoleName.ADMIN != requestUser.getRoleName() && !Objects.equals(reservation.getUser().getUserId(), requestUser.getUserId())) {
+		if ( RoleName.ADMIN != requestUser.getRoleName() &&
+				!Objects.equals(reservation.getUser().getUserId(), requestUser.getUserId())) {
 			throw new IllegalStateException("キャンセルは許可できません。");
 		}
 		reservationRepository.delete(reservation);

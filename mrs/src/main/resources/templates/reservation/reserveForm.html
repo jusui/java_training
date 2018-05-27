@@ -5,7 +5,8 @@
 <meta charset="UTF-8" />
 <title th:text="|${#temporals.format(date, 'yyyy/M/d')}の${room.roomName}|">会議室予約フォーム</title>
 </head>
-<body><!-- <body th:with="user=${#authentication.principal.user}"> -->
+<body>
+<!-- <body th:with="user=${#authentication.principal.user}">-->
 	<div>
 		<a th:href="@{'/rooms/' + ${date}}">会議室一覧へ</a>
 	</div>
@@ -18,7 +19,7 @@
 		  th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}" method="post">
 		会議室: <span th:text="${room.roomName}">豊洲</span>
 		<br />
-		予約者名: <span th:text="${user.lastName + ' ' + user.firstName}">山田 太郎</span>
+<!-- 		予約者名: <span th:text="${user.lastName + ' ' + user.firstName}">山田 太郎</span>-->
 		<br />
 		日付: <span th:text="${#temporals.format(date, 'yyyy/M/d')}">2016/5/20</span>
 		<br />
@@ -52,8 +53,7 @@
 				<span th:text="${reservation.user.firstName}" />
 			</td>
 			<td>
-				<form th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}"
-					  method="post"
+				<form th:action="@{'/reservations/' + ${date} + '/' + ${roomId}}" method="post"
 					  sec:authorize="${hasRole('ADMIN') or #vars.user.userId == #vars.reservation.user.userId}">
 					<input type="hidden" name="reservationId" th:value="${reservation.reservationId}" />
 					<input type="submit" name="cancel" value="取消" />
