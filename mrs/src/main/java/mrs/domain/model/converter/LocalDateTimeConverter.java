@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-@Converter(autoApply = true)
+@Converter(autoApply = true) // EntityのLocalDateTime型に対して，このAttributeConverterが自動で適用される
 public class LocalDateTimeConverter implements AttributeConverter<LocalDateTime, Timestamp> {
 	@Override
 	public Timestamp convertToDatabaseColumn(LocalDateTime dateTime) {

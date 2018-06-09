@@ -13,7 +13,7 @@ import mrs.domain.repository.room.MeetingRoomRepository;
 import mrs.domain.repository.room.ReservableRoomRepository;
 
 @Service
-@Transactional
+@Transactional // このクラスの各メソッドが自動でトランザクション管理できるよう設定
 public class RoomService {
 
 	@Autowired
@@ -22,6 +22,7 @@ public class RoomService {
 	@Autowired
 	MeetingRoomRepository meetingRoomRepository;
 
+	// ReservableRoomService を呼び出す
 	public List<ReservableRoom> findReservableRooms(LocalDate date){
 		return reservableRoomRepository.findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(date);
 

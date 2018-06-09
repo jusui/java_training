@@ -14,6 +14,8 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+	// ユーザ権限をEnumにマッピング
+	// カラムの値にEnumの文字列表現が格納されるようにEnumType.STRINGを指定
 	@Enumerated(EnumType.STRING)
 	private RoleName roleName;
 

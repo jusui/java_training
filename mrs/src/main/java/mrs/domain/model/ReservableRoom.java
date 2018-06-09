@@ -10,8 +10,10 @@ import javax.persistence.MapsId;
 
 @Entity
 public class ReservableRoom implements Serializable {
-	@EmbeddedId
+	// 複合主キーを扱うため複合主キークラス(ReservableRoomId)を用意して@EmbeddedIdアノテーションを付与
+	@EmbeddedId // 単一のフィールドでプライマリキークラスを指定
 	private ReservableRoomId reservableRoomId;
+
 	@ManyToOne
 	@JoinColumn(name = "room_id", insertable = false, updatable = false)
 	@MapsId("roomId")
