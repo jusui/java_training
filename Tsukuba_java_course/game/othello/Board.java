@@ -1,4 +1,4 @@
-package othello;
+// package othello;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 
 public class Board implements ActionListener{
     
@@ -56,9 +57,11 @@ public class Board implements ActionListener{
         int x = data/8;
         int y = data%8;
         
-        if (Piece.p[X+1][y+1] == 0) {            
+        if(Piece.p[x+1][y+1] == 0)
+        {            
             Piece.p[x+1][y+1] = Piece.turn;
-            Piece.checkRev(x+1,y+1);
+            // Piece.checkRev(x+1,y+1);
+            Piece.doRev(x+1,y+1);	    
             putPiece();
         
             if(Piece.turn == Piece.BLACK){
@@ -89,4 +92,4 @@ public class Board implements ActionListener{
         
     }
 
-} // public class Board implements ActionListener
+}

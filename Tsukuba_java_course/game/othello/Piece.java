@@ -1,12 +1,12 @@
-package othello;
+// package othello;
 
 import javax.swing.JButton;
 
 public class Piece extends JButton{
     
     static int[][] p = new int[10][10];
-    public static final int OFFMAP =-1;         //盤外
-    public static final int NULL = 0;              //コマが無いマス
+    public static final int OFFMAP =-1; //盤外
+    public static final int NULL = 0; //コマが無いマス
     public static final int BLACK = 1;
     public static final int WHITE = 2;
 
@@ -83,7 +83,10 @@ public class Piece extends JButton{
                     revY = revY+my;
                 }
             }
+            
         }
-    } // doRev
-} // public class Piece extends JButton
-
+        
+        
+    }
+    
+}
