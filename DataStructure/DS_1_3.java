@@ -7,11 +7,12 @@
 
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.ArrayList;
     
 class DS_1_3 {
 
     // 置換
-    public static void replaceSpaces(char[] str, int trueLength) {
+    public static String replaceSpaces(char[] str, int trueLength) {
 	int spaceCount = 0, index, i = 0;
 	for ( i = 0; i < trueLength; i++ ) {
 	    if (str[i] == ' ') {
@@ -30,28 +31,17 @@ class DS_1_3 {
 	    } else {
 		str[index - 1] = str[i];
 		index--;
-	    }
+	    }    
 	}
+	
+	return new String(str).trim();
     }
 
     public static void main(String[] args) {
 
-	// System.out.print("Input string.length > ");	      
-	// Scanner scanNum = new Scanner(System.in);
-	// int num = scanNum.nextInt();
-	
-	// System.out.print("Input String > ");			
-	// Scanner scan = new Scanner(System.in);
-	// String str = scan.next();
-	// char[] content = str.toCharArray();
-	// Arrays.sort(content);
-	// System.out.print(content);
-
-	String str = "Mr John Smith ";
-	char[] content = str.toCharArray();
-	Arrays.sort(content);	
-	replaceSpaces(content, 13);
+	DS_1_3 u = new DS_1_3();
+	char[] chars = "Mr John Smith ".toCharArray();
+	System.out.println(u.replaceSpaces(chars, 13));
     }
-    
 }
 
