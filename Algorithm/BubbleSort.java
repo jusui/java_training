@@ -12,9 +12,8 @@ public class BubbleSort {
 	int[] data = new int[num];
 	// int[] data = { 4, 6, 7, 9, 2 };
 	
-	out.println("入力する配列の要素を入力して下さい。");
-	
 	for ( int i = 0; i < num; i++ ) {
+	    out.println( (i+1) + "番目に入力する配列の要素を入力して下さい。");
 	    str = br.readLine();
 	    int tmp = Integer.parseInt(str);
 	    data[i] = tmp;
